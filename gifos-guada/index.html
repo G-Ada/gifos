@@ -1,24 +1,278 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, inicial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="author" content="Guadalupe">
-        <meta name="description" content="Este es un sitio de gifs, donde se podran visualizar y crear gifs.">
-        <title>gifOS</title>
-        <link rel="stylesheet" type="text/css" href="./estilos/style-one.css"/>
-        <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</header>
-        <section id="inicio">
-            <div class="logo"><img class="gifLogo" src="./imagenes/gifOF_logo.png" alt="gifOS"/></div>
-            <div class="buttons">
-                
-            </div>
-        </section>
 
-        <script src="./javascript/gifos.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Guadalupe">
+    <meta name="description" content="Este es un sitio de gifs, donde se podran visualizar y crear gifs.">
+    <title>gifOS</title>
+    <link rel="stylesheet" type="text/css" href="./estilos/day-style.css" />
+    <script src="https://kit.fontawesome.com/77f8c16141.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p>
+    </header>
+    <section id="inicio">
+        <div class="logo"><a href="index.html"><img id="gifLogo" class="gifLogo" src="./imagenes/gifOF_logo.png"
+                    alt="gifOS" /></a> </div>
+        <h2 class="displayNone">Inicio</h2>
+        <div class="paraElUsuario">
+            <div id="crear" class="crear btn_color">
+                <p class="boton">Crear Guifos</p>
+            </div>
+            <div class="estilos">
+                <div class="botonEstilos">
+                    <p class="boton">Elige un estilo</p>
+                </div>
+                <div class="flecha">
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <ul id="listaEstilos" class="listaEstilos">
+                    <li class="estiloDia">Sailor Day</li>
+                    <li class="estiloNoche">Sailor Night</li>
+                </ul>
+            </div>
+            <div class="usuarios">
+                <p class="boton usuario">Mis guifos</p>
+            </div>
+        </div>
+    </section>
+    <section id="buscador">
+        <h1 class="acolor">Buscar</h1>
+        <form class="buscador">
+            <input autocomplete="off" type="search" class="gbuscar" id="gbuscar"
+                placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
+            <button id="buscar_btn" type="button" class="buscar_btn"><i
+                    class="fas fa-search"></i> Buscar</button>
+        </form>
+        <div id="buscarRecomendaciones" class="buscar_recomendaciones">
+            <ul class="recomendaciones">
+                <li id="r1"class="recomendacion"></li>
+                <li id="r2"class="recomendacion"></li>
+                <li id="r3"class="recomendacion"></li>
+            </ul>
+        </div>
+    </section>
+    <div id="tagsrelacionados">
+        <div id="dtag1" class="dtag">
+            <p id="tag1" class="tag"></p>
+        </div>
+        <div id="dtag2" class="dtag">
+            <p id="tag2" class="tag"></p>
+        </div>
+        <div id="dtag3" class="dtag">
+            <p id="tag3" class="tag"></p>
+        </div>
+    </div>
+    <section id="sugerencias">
+        <h1 class="tseccion">Hoy te sugerimos:</h1>
+        <div class="contenido">
+            <div class="gifs">
+                <div class="encabezado">
+                    <p class="bold">#Jonathanvanness</p>
+                    <div class="salir"><img src="./imagenes/buttonclose.svg" alt="salir" /></div>
+                </div>
+                <div class="gif">
+                    <img class="gifimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                </div>
+                <button class="mas">Ver Más...</button>
+            </div>
+            <div class="gifs">
+                <div class="encabezado">
+                    <p class="bold">#Jonathanvanness</p>
+                    <div class="salir"><img src="./imagenes/buttonclose.svg" alt="salir" /></div>
+                </div>
+                <div class="gif">
+                    <img class="gifimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                </div>
+                <button class="mas">Ver Más...</button>
+            </div>
+            <div class="gifs">
+                <div class="encabezado">
+                    <p class="bold">#Jonathanvanness</p>
+                    <div class="salir"><img src="./imagenes/buttonclose.svg" alt="salir" /></div>
+                </div>
+                <div class="gif">
+                    <img class="gifimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                </div>
+                <button class="mas">Ver Más...</button>
+            </div>
+            <div class="gifs">
+                <div class="encabezado">
+                    <p class="bold">#Jonathanvanness</p>
+                    <div class="salir"><img src="./imagenes/buttonclose.svg" alt="salir" /></div>
+                </div>
+                <div class="gif">
+                    <img class="gifimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                </div>
+                <button class="mas">Ver Más...</button>
+            </div>
+        </div>
+    </section>
+    <section id="tendencias">
+        <h1 id="tbusqueda" class="tseccion">Tendencias:</h1>
+        <div class="contenido">
+            <div class="gifs2">
+                <div class="gif2">
+                    <img class="gif2img"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifs2">
+                <div class="gif2">
+                    <img class="gif2img"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifs2">
+                <div class="gif2">
+                    <img class="gif2img"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifs2">
+                <div class="gif2">
+                    <img class="gif2img"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifs2grande">
+                <div class="gif2grande">
+                    <img class="gif2img"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifs2">
+                <div class="gif2">
+                    <img class="gif2img"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifs2">
+                <div class="gif2">
+                    <img class="gif2img"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="gifsUsuario" class="displayNone">
+        <h1 id="tusuario" class="tseccion">Mis guifos</h1>
+        <div class="contenido">
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifGrandeUsuario">
+                <div class="gifGrandeU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="bold">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./javascript/gifos.js"></script>
+</body>
+
 </html>

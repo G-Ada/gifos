@@ -1,0 +1,533 @@
+@import "variables-nocturnas.scss";
+
+*{
+    box-sizing: border-box;
+}
+body {
+    box-sizing: border-box;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+    font-size: 14px;
+    width: 100%;
+    background-color: $color-fondo;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    height: 23px;
+    background: linear-gradient(to right, $color-uno, $color-dos);
+    left: 0;
+    top: 0;
+    padding: 3px;
+    box-shadow: 0 1px 0 0 $color-oscuro;
+}
+p{
+    display: inline-block;
+    margin: 0;
+    padding-top: 3px;
+    vertical-align: middle;
+    font-family: 'Chakra Petch', sans-serif;
+    color: $color-claro;
+    font-size: 0.9em;
+}
+#inicio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.paraElUsuario {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.crear {
+    position: relative;
+    padding: 9px;
+    padding-left: 26px;
+    padding-right: 26px;
+    background-color: $boton-claro;
+    border: 1px solid $color-oscuro;
+    box-shadow: inset -1px -1px 0 0 rgb(153, 125, 151), inset 1px 1px 0 0 $color-claro;
+    margin-right: 16px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.crear:hover {
+    background: rgb(206, 54, 219);
+    &::after {
+        position: absolute;
+        content: '';
+        width: 132px;
+        height: 30px;
+        border: 1px dotted $color-oscuro;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.usuario {
+    &::after {
+        content: '';
+        border-bottom: 1px solid $color-claro;
+        width: 8px;
+        display: block;
+    }
+    &:hover {
+        cursor: pointer;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 20px;
+        border: 1px dotted $color-claro;
+    }
+    &:active {
+        border: none;
+        color: $sombra;
+        &::after {
+            content: '';
+            border-bottom: 1px solid $sombra;
+            width: 8px;
+            display: block;
+        }
+    }
+}
+.boton {
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.1em;
+    color: $color-claro;
+    line-height: 1.2em;
+    padding-top: 0px;
+}
+.estilos {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 16px;
+    &:hover .botonEstilos {
+        background: rgb(206, 54, 219);
+        &::after {
+            content: '';
+            position: absolute;
+            width: 143px;
+            height: 30px;
+            border: 1px dotted $color-oscuro;
+            top: 50%;
+            left: 50%;
+            transform: translate(-62.5%, -50%);
+        }
+    }
+    &:hover .flecha {
+        background: rgb(206, 54, 219);
+        &::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 1px dotted $color-oscuro;
+            top: 7%;
+            right: 2%;
+        }
+    }
+}
+.botonEstilos {
+    padding: 9px;
+    padding-left: 26px;
+    padding-right: 26px;
+    background-color: $boton-claro;
+    border: 1px solid $color-oscuro;
+    box-shadow: inset -1px -1px 0 0 rgb(153, 125, 151), inset 1px 1px 0 0 $color-claro;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.flecha {
+    padding: 9px;
+    padding-right: 14px;
+    padding-left: 14px;
+    color: $color-claro;
+    background-color: $boton-claro;
+    border: 1px solid $color-oscuro;
+    border-left: 0px;
+    box-shadow: inset -1px -1px 0 0 rgb(153, 125, 151), inset 1px 1px 0 0 $color-claro;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.listaEstilos {
+    display: none;
+    list-style-type: none;
+    position: absolute;
+    background: $boton-gris;
+    box-shadow: inset -2px -2px 0 0 rgb(143, 143, 143), inset 2px 2px 0 0 $color-claro;
+    width: 100%;
+    margin-top: 0px;
+    top: 100%;
+    left: 0;
+    z-index: 101;
+    padding: 10px;
+}
+.estiloDia {
+    background: rgb(204, 204, 204);
+    border: 1px solid rgb(128, 128, 128);
+    box-shadow: inset -1px -1px 0 0 $sombra, inset 1px 1px 0 0 $color-claro;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 22px;
+    padding: 7px;
+    padding-left: 16px;
+    margin-bottom: 10px;
+    &::after {
+        content: '';
+        border-bottom: 1px solid $color-oscuro;
+        width: 8px;
+        display: block;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+.estiloNoche {
+    background: rgb(46, 50, 251);
+    border: 1px solid rgba(51, 53, 142, 0.20);
+    box-shadow: inset -1px -1px 0 0 rgb(230, 220, 228), inset 1px 1px 0 0 $color-claro;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    color: $color-claro;
+    letter-spacing: 0;
+    line-height: 22px;
+    padding: 7px;
+    padding-left: 16px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+#buscador {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 99px;
+    background: $boton-gris;
+    box-shadow: inset -2px -2px 0 0 $sombra, inset 2px 2px 0 0 $color-claro;
+    margin-top: 20px;
+}
+.acolor {
+    width: 100%;
+    height: 25%;
+    background-image: linear-gradient(270deg, $color-dos 0%, $color-uno 100%);
+    box-shadow: inset -2px 0px 0 0 $sombra, inset 2px 2px 0 0 $color-claro;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    padding: 4px;
+    font-size: 1em;
+    color: $color-claro;
+}
+.gbuscar {
+    background: $color-claro;
+    border: 1px solid rgb(151, 151, 151);
+    box-shadow: inset -2px -2px 0 0 $sombra, inset 2px 2px 0 0 #000000;
+    width: 90%;
+    height: 80%;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.1em;
+    color: $sombra;
+    line-height: 1.4em;
+    margin: 9px;
+    margin-top: 0px;
+    margin-right: 5px;
+    padding: 12px;
+    &:focus {
+        outline: none;
+        border:none;
+        background-image:none;
+        background-color:transparent;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        background: $color-claro;
+        border: 1px solid rgb(151, 151, 151);
+        box-shadow: inset -2px -2px 0 0 rgb(230, 230, 230), inset 2px 2px 0 0 black;
+    }
+    &:focus ~ .buscar_btn {
+        background: $color-dos;
+        border: 1px solid $color-oscuro;
+        box-shadow: inset -1px -1px 0 0 rgb(167, 44, 179), inset 1px 1px 0 0 $color-claro;
+        color: $color-claro;
+    }
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+.buscar_btn {
+    position: relative;
+    background: $boton-gris;
+    border: 1px solid rgb(128, 128, 128);
+    box-shadow: inset -1px -1px 0 0 $sombra, inset 1px 1px 0 0 $color-claro;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.1em;
+    color: rgb(143, 143, 143);
+    line-height: 1.2em;
+    padding: 8px;
+    width: 7.5%;
+    &:active {
+        background: rgb(206, 54, 219);
+        color: $color-claro;
+        &::after {
+            content: '';
+            width: 83px;
+            height: 28px;
+            border: 1px dotted $color-oscuro;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 102;
+        }
+    }
+    &:focus {
+        outline: none;
+    }
+}
+#buscarRecomendaciones {
+    display: none;
+    background: $boton-gris;
+    box-shadow: inset -2px -2px 0 0 $sombra, inset 2px 2px 0 0 $color-claro;
+    width: 100%;
+    padding: 16px;
+    position: absolute;
+    top: 100%;
+    z-index: 105;
+}
+.recomendaciones {
+    margin: 0px;
+    padding: 0px;
+}
+.recomendacion {
+    position: relative;
+    list-style-type: none;
+    background: rgb(204, 204, 204);
+    border: 1px solid rgb(128, 128, 128);
+    box-shadow: inset -1px -1px 0 0 $sombra, inset 1px 1px 0 0 $color-claro;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    color: $color-oscuro;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 11px;
+    padding: 7px;
+    padding-left: 16px;
+    &:hover {
+        cursor: pointer;
+        border: 1px solid #808080;
+        box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+        &::after {
+            content: '';
+            width: 99.7%;
+            height: 86%;
+            border: 1px dotted $color-oscuro;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 106;
+        }
+    }
+}
+#tagsrelacionados {
+    display: flex;
+    flex-direction: row;
+}
+.dtag {
+    display: none;
+    background: #4180F6;
+    border: 1px solid #4C2F99;
+    box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+    padding: 8px;
+    margin-right: 8px;
+    margin-top: 12px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.tseccion {
+    text-transform: capitalize;
+    background: rgb(255, 250, 254);
+    border: 1px solid rgb(46, 50, 251);
+    box-shadow: inset -2px -2px 0 0 rgb(230, 220, 228), inset 2px 2px 0 0 $color-oscuro;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1em;
+    color: $color-oscuro;
+    padding: 7px;
+    margin-top: 64px;
+}
+.contenido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.gifs {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $boton-gris;
+    padding: 3px;
+    box-shadow: inset -2px -2px 0 0 $sombra, inset 2px 2px 0 0 $color-claro;
+}
+.encabezado {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    background-image: linear-gradient(270deg, $color-dos 0%, $color-uno 100%);
+    margin:2px;
+}
+.salir {
+    cursor: pointer;
+}
+.gif {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 2px;
+    background-color: red;
+    &:hover {
+        &::after{
+        content: '';
+        width: 276px;
+        height: 276px;
+        border: 1px dotted $color-oscuro;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        }
+    }
+}
+.mas {
+    position: absolute;
+    bottom: 8%;
+    left: 5%;
+    background: rgb(46, 50, 251);
+    border: 1px solid rgb(76, 47, 153);
+    box-shadow: inset -2px -2px 0 0 rgb(33, 36, 179), inset 2px 2px 0 0 $color-claro;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1em;
+    color: $color-claro;
+    text-align: center;
+    line-height: 1.2em;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 100;
+    &:hover {
+        cursor: pointer;
+        background: rgb(38, 41, 204);
+        &::after{
+        content: '';
+        width: 70px;
+        height: 24px;
+        border: 1px dotted $color-oscuro;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+    }
+}
+.gifs2grande, .gifGrandeUsuario {
+    width: 592px;
+    height: 298px;
+    margin-bottom: 16px;
+    background: $boton-gris;
+    &:hover {
+        width: 598px;
+        height: 304px;
+        box-shadow: inset -2px -2px 0 0 $sombra, inset 2px 2px 0 0 $color-claro;
+    }
+}
+.gif2grande, .gifGrandeU {
+    position: relative;
+    width: 592px;
+    height: 298px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: blueviolet;
+    &:hover {
+        &::after{
+        content: '';
+        width: 588px;
+        height: 294px;
+        border: 1px dotted $color-oscuro;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        }
+    }
+}
+.gifs2, .gifUsuario {
+    width: 288px;
+    height: 298px;
+    margin-bottom: 16px;
+    background: $boton-gris;
+    &:hover {
+        width: 294px;
+        height: 304px;
+        box-shadow: inset -2px -2px 0 0 $sombra, inset 2px 2px 0 0 $color-claro;
+    }
+}
+.gif2, .gifU {
+    position: relative;
+    width: 288px;
+    height: 298px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: blueviolet;
+    &:hover {
+        &::after{
+        content: '';
+        width: 284px;
+        height: 294px;
+        border: 1px dotted $color-oscuro;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        }
+    }
+}
+.gif2img, .gifimg, .gifUimg {
+    width: 100%;
+    height: 100%;
+}
+.pie {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 3px;
+    background-image: linear-gradient(270deg, $color-dos 0%, $color-uno 100%);
+}
+.displayNone {
+    display: none;
+}

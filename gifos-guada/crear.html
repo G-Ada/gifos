@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Guadalupe">
+    <meta name="description" content="Este es un sitio de gifs, donde se podran visualizar y crear gifs.">
+    <title>gifOS</title>
+    <link rel="stylesheet" type="text/css" href="./estilos/day-style.css" />
+    <script src="https://kit.fontawesome.com/77f8c16141.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p>
+    </header>
+    <section id="inicio2">
+        <a href="./index.html"><img class="back" src="./imagenes/arrow.svg" alt="Volver al inicio" /> </a>
+        <div class="logo"><a href="index.html"><img id="gifLogo" class="gifLogo" src="./imagenes/gifOF_logo.png"
+                    alt="gifOS" /></a> </div>
+        <h2 class="displayNone">Inicio</h2>
+    </section>
+    <section id="crearGuifos">
+        <div class="instrucciones">
+            <div class="encabezado">
+                <p class='bold'>Crear Guifos</p>
+            </div>
+            <div class="icontenido">
+                <img class="ventana" src="./imagenes/windowimg.png" alt="ventana" />
+                <div class="subcontenido">
+                    <h3 class="tinstrucciones">Aquí podrás crear tus propios guifos</h3>
+                    <p class="instructivo">
+                        Crear tu <i><b>guifo</b></i> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos
+                        personalizados.
+                        Los
+                        pasos para crear tu guifo son:
+                    </p>
+                    <ol class="olinstrucciones">
+                        <li>Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</li>
+                        <li>Capturar tu momento guifo</li>
+                        <li>Revisar el momento</li>
+                        <li>Listo para subir y compartir!</li>
+                    </ol>
+                    <p class="instructivo">
+                        ¿Querés comenzar a crear tu <i><b>guifo</b></i> ahora?
+                    </p>
+                </div>
+            </div>
+            <div class="confirmacion">
+                <div id="cancelar" class="btn_gris">
+                    <p class="boton">Cancelar</p>
+                </div>
+                <div id="comenzar" class="btn_color">
+                    <p class="boton">Comenzar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="capturar">
+        <div class="captura">
+            <div class="encabezado">
+                <p class="bold">Un Chequeo Antes de Empezar</p>
+                <div class="salir"><img src="./imagenes/buttonclose.svg" alt="salir" /></div>
+            </div>
+            <video id="video"></video>
+            <div id="iniciar" class="base">
+                <div class="displayNone"></div>
+                <div id="grabar" class="btn_doble">
+                    <div class="icono">
+                        <img src="./imagenes/camera.svg" alt="capturar">
+                    </div>
+                    <div class="btn">
+                        <p class="boton">Capturar</p>
+                    </div>
+                </div>
+            </div>
+            <div id="grabando" class="base displayNone">
+                <div class="cronometro">
+                    <p class="boton">
+                        00:00:00:00
+                    </p>
+                </div>
+                <div id="detener" class="btn_doble">
+                    <div class="icono_oscuro">
+                        <img src="./imagenes/recording.svg" alt="capturar">
+                    </div>
+                    <div class="btn_oscuro">
+                        <p class="blanco">Listo</p>
+                    </div>
+                </div>
+            </div>
+            <div id="previa" class="base displayNone">
+                <div>
+                    <div class="cronometro">
+                        <p class="boton">
+                            00:00:00:00
+                        </p>
+                    </div>
+                    <div class="reproductor">
+                        <div class="play" id="play_btn">
+                            <img src="./imagenes/forward.svg" alt="reproducir"/>
+                        </div>
+                        <div class="tiempo">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div id="repetir" class="btn_gris">
+                        <p class="boton">Repetir Captura</p>
+                    </div>
+                    <div id="subir" class="btn_color">
+                        <p class="boton">Subir Guifo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="subiendo">
+        <div class="captura">
+            <div class="encabezado">
+                <p class="bold">Subiendo Guifo</p>
+                <div class="salir"><img src="./imagenes/buttonclose.svg" alt="salir" /></div>
+            </div>
+            <div class="subiendo">
+                <div><img src="./imagenes/globe_img.png" alt="globo"></div>
+                <h2>Estamos subiendo tu guifo…</h2>
+                <div class="tiempo largo">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <p class="interno">Tiempo restante: <span class="tachado">38 años</span> algunos minutos</h3>
+            </div>
+            <div class="base">
+                <div></div>
+                <div>
+                    <div class="btn_gris">
+                        <p class="boton">Cancelar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="subido">
+        <div class="instrucciones">
+            <div class="encabezado">
+                <p class='bold'>Guifo Subido Con Éxito</p>
+            </div>
+            <div class="subido">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="gif" class="chico"></img>
+                <div class="subcontenido">
+                    <h3 class="tinstrucciones">Guifo creado con éxito</h3>
+                    <div class="btn_gris">
+                        <p class="boton">Copiar Enlace Guifo</p>
+                    </div>
+                    <div class="btn_gris">
+                        <p class="boton">Descargar Guifo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="confirmacion">
+                <div class="btn_color btn_largo">
+                    <p class="boton">Listo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="gifsUsuario">
+        <h1 id="tusuario" class="tseccion">Mis guifos</h1>
+        <div class="contenido">
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="hashtags">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="hashtags">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="hashtags">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="hashtags">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifGrandeUsuario">
+                <div class="gifGrandeU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="hashtags">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="hashtags">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gifUsuario">
+                <div class="gifU">
+                    <img class="gifUimg"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="gif" />
+                    <div class="pie">
+                        <p class="hashtags">#wink #puppie #dog</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="./javascript/crear.js"></script>
+</body>
+
+</html>

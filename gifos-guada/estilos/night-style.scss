@@ -32,6 +32,9 @@ p{
     color: $color-claro;
     font-size: 0.9em;
 }
+.bold {
+    font-weight: bold;
+}
 #inicio {
     display: flex;
     flex-direction: row;
@@ -404,7 +407,7 @@ input[type="search"]::-webkit-search-results-decoration {
     width: 280px;
     height: 280px;
     margin: 2px;
-    background-color: red;
+    background-color: $boton-gris;
     &:hover {
         &::after{
         content: '';
@@ -466,10 +469,11 @@ input[type="search"]::-webkit-search-results-decoration {
     position: relative;
     width: 592px;
     height: 298px;
+    margin-bottom: 16px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: blueviolet;
+    background-color: $boton-gris;
     &:hover {
         &::after{
         content: '';
@@ -499,10 +503,11 @@ input[type="search"]::-webkit-search-results-decoration {
     position: relative;
     width: 288px;
     height: 298px;
+    margin-bottom: 16px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: blueviolet;
+    background-color: $boton-gris;
     &:hover {
         &::after{
         content: '';
@@ -527,6 +532,133 @@ input[type="search"]::-webkit-search-results-decoration {
     width: 100%;
     padding: 3px;
     background-image: linear-gradient(270deg, $color-dos 0%, $color-uno 100%);
+    display: none;
+}
+.btn_gris {
+    position: relative;
+    padding: 9px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: $color-fondo;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 rgb(154, 126, 152), inset 1px 1px 0 0 $color-claro;
+    margin-right: 16px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.btn_gris:hover {
+    background: rgb(240, 229, 238);
+    border: 1px solid $color-oscuro;
+    box-shadow: inset -1px -1px 0 0 rgb(153, 125, 151), inset 1px 1px 0 0 $color-claro;
+    &::after {
+        position: absolute;
+        content: '';
+        width: 96%;
+        height: 86%;
+        border: 1px dotted $color-oscuro;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.btn_doble {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: flex-end;
+    padding-right: 0px;
+    &:hover .btn {
+        background: rgb(230, 187, 226);
+        &::after {
+            content: '';
+            position: absolute;
+            width: 95%;
+            height: 90%;
+            border: 1px dotted $color-oscuro;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    &:hover .icono {
+        background: rgb(230, 187, 226);
+        &::after {
+            content: '';
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            border: 1px dotted $color-oscuro;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+.btn {
+    position: relative;
+    padding: 9px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: $boton-claro;
+    border: 1px solid $color-oscuro;
+    box-shadow: inset -1px -1px 0 0 rgb(153, 125, 151), inset 1px 1px 0 0 $color-claro;
+    margin-right: 16px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.icono {
+    position: relative;
+    padding: 9px;
+    background-color: $boton-claro;
+    border: 1px solid $color-oscuro;
+    box-shadow: inset -1px -1px 0 0 rgb(153, 125, 151), inset 1px 1px 0 0 $color-claro;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.btn_oscuro {
+    position: relative;
+    padding: 9px;
+    padding-right: 50px;
+    padding-left: 50px;
+    background: rgb(255, 97, 97);
+    border: 1px solid $color-oscuro;
+    box-shadow: inset -1px -1px 0 0 rgb(153, 125, 151), inset 1px 1px 0 0 $color-claro;
+    margin-right: 16px;
+    vertical-align: middle;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.icono_oscuro {
+    position: relative;
+    padding: 9px;
+    background: rgb(255, 97, 97);
+    border: 1px solid $color-oscuro;
+    box-shadow: inset -1px -1px 0 0 rgb(153, 125, 151), inset 1px 1px 0 0 $color-claro;
+    vertical-align: middle;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.blanco {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.1em;
+    color: $color-claro;
+    text-align: center;
+    line-height: 18px;
+}
+h2 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #110038;
+    text-align: center;
+    line-height: 22px;
+    margin-bottom: 30px;
 }
 .displayNone {
     display: none;

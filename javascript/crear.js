@@ -91,7 +91,7 @@ function showSubido() {
 }
 
 async function getLastGif(gif) {
-    const found = await fetch('http://api.giphy.com/v1/gifs/' + gif + '?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
+    const found = await fetch('https://api.giphy.com/v1/gifs/' + gif + '?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
         .then((response) => {
             return response.json()
         }).then(data => {
@@ -233,7 +233,7 @@ function getStreamAndRecord() {
 
 
 async function getUsersGifs(gif) {
-    const found = await fetch('http://api.giphy.com/v1/gifs/' + gif + '?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
+    const found = await fetch('https://api.giphy.com/v1/gifs/' + gif + '?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
         .then((response) => {
             return response.json()
         }).then(data => {

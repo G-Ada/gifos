@@ -30,7 +30,7 @@ function changeLogo() {
 async function getSearchResults() {
     var busqueda = document.getElementById('gbuscar')
     const found = await
-        fetch('http://api.giphy.com/v1/gifs/search?q=' + busqueda.value +
+        fetch('https://api.giphy.com/v1/gifs/search?q=' + busqueda.value +
             '&api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
             .then((response) => {
                 return response.json()
@@ -70,7 +70,7 @@ function showOnlySearch (valor) {
 
 async function getRelatedTags(data) {
     const found = await
-    fetch('http://api.giphy.com/v1/gifs/search/tags?q=' + data + '&api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
+    fetch('https://api.giphy.com/v1/gifs/search/tags?q=' + data + '&api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
     .then ((response) => {
         return response.json()
     }).then(data => {
@@ -112,7 +112,7 @@ function chooseRelatedTag (tag) {
 //Busca recomendaciones y muestra los gifs
 async function getRecomendaciones () {
     const found = await
-    fetch('http://api.giphy.com/v1/gifs/trending?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
+    fetch('https://api.giphy.com/v1/gifs/trending?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
     .then ((response) => {
         return response.json()
     }).then(data => {
@@ -147,7 +147,7 @@ try {
 //Busca las tendencias y las agrega
 async function getTendencias () {
     const found = await
-    fetch('http://api.giphy.com/v1/gifs/trending?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
+    fetch('https://api.giphy.com/v1/gifs/trending?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
     .then ((response) => {
         return response.json()
     }).then(data => {
@@ -249,7 +249,7 @@ try {
 //Autocompletar. Desplegable de 3 opciones similares
 async function autocomplete (search) {
     const found = await
-    fetch('http://api.giphy.com/v1/gifs/search/tags?q=' + search + '&api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
+    fetch('https://api.giphy.com/v1/gifs/search/tags?q=' + search + '&api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
     .then ((response) => {
         return response.json()
     }).then(data => {
@@ -327,7 +327,7 @@ function retrieveUserGif() {
 }
 
 async function getUsersGifs(gif) {
-    const found = await fetch('http://api.giphy.com/v1/gifs/' + gif + '?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
+    const found = await fetch('https://api.giphy.com/v1/gifs/' + gif + '?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
         .then((response) => {
             return response.json()
         }).then(data => {

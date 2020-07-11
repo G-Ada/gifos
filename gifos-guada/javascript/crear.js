@@ -1,4 +1,13 @@
+const BOTON_LISTO = document.getElementById('listo')
+const COPY_URL = document.getElementById('copyURL')
+const DOWNLOAD = document.getElementById('download')
+var USER_GIF = null
+
 //EVENTOS
+BOTON_LISTO.addEventListener('click', () => {
+    let cambio = window.location = './index.html'
+    return cambio
+})
 try {
     let button = document.getElementById('repetir')
     button.addEventListener('click', (ev) => {
@@ -44,7 +53,7 @@ function changeWhenStopped() {
 }
 
 //VISTA PREVIA
-function createPreview(videoStream){
+function createPreview(videoStream) {
     let video = document.getElementById('video')
     let blobVideo = videoStream.getBlob();
     let videoURL = URL.createObjectURL(blobVideo)
@@ -55,7 +64,7 @@ function createPreview(videoStream){
 
 function playVideo() {
     let playButton = document.getElementById("play_btn");
-    playButton.addEventListener("click", function() {
+    playButton.addEventListener("click", function () {
         if (video.paused == true) {
             video.play();
         } else {
@@ -64,37 +73,88 @@ function playVideo() {
     });
 }
 
-function showSubido (){
-    let subiendo = document.getElementById('subiendo')
-    let subido = document.getElementById('subido')
+function showSubido() {
+    try {
+        let subiendo = document.getElementById('subiendo')
+        let subido = document.getElementById('subido')
+        let gifs = localStorage.getItem("mis_gifs")
+        let array = JSON.parse(gifs)
+        let gif = array[array.length - 1]
+        subiendo.style.display = 'none'
+        subido.style.display = 'block'
+        let gifUser = getLastGif(gif)
+        console.log(gifUser)
+    } catch (error) {
+        console.log(error.message)
+    }
+
+}
+
+async function getLastGif(gif) {
+    const found = await fetch('http://api.giphy.com/v1/gifs/' + gif + '?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
+        .then((response) => {
+            return response.json()
+        }).then(data => {
+            console.log(data)
+            showPreview(data)
+            COPY_URL.addEventListener('click', () => {
+                copyURL(data)
+                COPY_URL.innerHTML = 'Copiado'
+            })
+            DOWNLOAD.addEventListener('click', ()=>{
+                invokeSaveAsDialog(USER_GIF)
+            })
+            return data
+        })
+        .catch((error) => {
+            return error
+        })
+    return found
+}
+
+function showPreview(data) {
+    let gif = data.data.images.original.url
     let img = document.querySelector('.chico')
-    let gifs = localStorage.getItem("mis_gifs")
-    let array = JSON.parse(gifs)
-    let gif = array[array.length-1]
-    subiendo.style.display = 'none'
-    subido.style.display = 'block'
     img.setAttribute('src', gif)
 }
 
-function saveGif(form){
-    fetch("https://upload.giphy.com/v1/gifs?api_key=oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe", {
+function copyURL(data) {
+    let url = data.data.url
+    var tempInput = document.createElement("input");
+    tempInput.value = url;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+}
+
+async function saveGif(form) {
+    const found = await fetch("https://upload.giphy.com/v1/gifs?api_key=oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe", {
         method: "POST",
         body: form
     }).then(r => {
         return r.json()
     }).then(obj => {
-        let gifs = localStorage.getItem("mis_gifs")
-        let arrayG = [];
-        if (gifs != null) {
-            arrayG = JSON.parse(gifs)
-        } 
-        arrayG.push(obj.data.id)
-        localStorage.setItem("mis_gifs", JSON.stringify(arrayG))
-        console.log(arrayG)
-        console.log(gifs)
-        return arrayG
+        try {
+            let gifs = localStorage.getItem("mis_gifs")
+            let arrayG = [];
+            if (gifs != null) {
+                arrayG = JSON.parse(gifs)
+            }
+            arrayG.push(obj.data.id)
+            localStorage.setItem("mis_gifs", JSON.stringify(arrayG))
+            console.log(arrayG)
+            console.log(gifs)
+        } catch (error) {
+            error.message
+        }
     }).then(array => {
-        showSubido()
+        try {
+            showSubido()
+        } catch (error) {
+            console.log(error.message)
+        }
+
     }).catch(err => {
         console.log(err.message)
     })
@@ -146,7 +206,7 @@ function getStreamAndRecord() {
                 let detener = document.getElementById('detener')
                 detener.addEventListener('click', (ev) => {
                     changeWhenStopped()
-                    recorderVideo.stopRecording(function() {
+                    recorderVideo.stopRecording(function () {
                         createPreview(recorderVideo);
                     })
                     recorder.stopRecording(function () {
@@ -156,16 +216,58 @@ function getStreamAndRecord() {
                         subirGuifo.addEventListener('click', (ev) => {
                             let blob = recorder.getBlob();
                             uploading(blob);
-                        }) 
+                        })
+                        USER_GIF = recorder.getBlob()
+                        console.log(USER_GIF)
                     })
                 })
+                
             } catch (error) {
                 console.log(error)
             }
         })
-        .catch((error)=>{
+        .catch((error) => {
             console.log(error)
         })
 }
 
+
+async function getUsersGifs(gif, i) {
+    const found = await fetch('http://api.giphy.com/v1/gifs/' + gif + '?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
+        .then((response) => {
+            return response.json()
+        }).then(data => {
+            console.log(data)
+            placeUserGif(data, i)
+            return data
+        })
+        .catch((error) => {
+            return error
+        })
+    return found
+}
+
+function retrieveUserGif() {
+    let gifs = localStorage.getItem("mis_gifs")
+    let array = []
+    if (gifs != null) {
+        array = JSON.parse(gifs)
+    }
+    for (let i = 0; i < array.length; i++) {
+        getUsersGifs(array[i], i)
+    }
+}
+
+function placeUserGif(data, i) {
+    try {
+        let places = document.getElementsByClassName('gifUimg')
+        let gif = data.data.images.original.url
+        places[i].setAttribute('src', gif)
+    } catch (error) {
+        console.log(error.message)
+    }
+
+}
+
 playVideo()
+retrieveUserGif()

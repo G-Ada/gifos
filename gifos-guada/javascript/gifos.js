@@ -116,6 +116,7 @@ async function getRecomendaciones () {
     .then ((response) => {
         return response.json()
     }).then(data => {
+        console.log(data)
         addGifRecomendacion(data)
         return data
     })
@@ -127,9 +128,13 @@ return found
 
 function addGifRecomendacion (data) {
     let gifs = document.getElementsByClassName('gifimg')
+    let encabezado = document.querySelectorAll(".encabezado p")
     for (let i = 0; i < 4; i++) {
         let gif = gifs[i];
         gif.setAttribute("src", data.data[i].images.downsized_medium.url)
+        let string = data.data[i].title
+        let substring = string.substring(0, 32)
+        encabezado[i].innerHTML = "#" + substring
     }
 }
 try {
@@ -146,7 +151,8 @@ async function getTendencias () {
     .then ((response) => {
         return response.json()
     }).then(data => {
-        addGifTendencia(data)
+        console.log(data.data.length)
+        addTendenciaGif(data)
         return data
     })
     .catch((error)=> {
@@ -157,12 +163,82 @@ return found
 
 function addGifTendencia (data) {
     let gifs = document.getElementsByClassName('gif2img')
+    let pie = document.querySelectorAll(".pie p")
     for (let i = 0; i < 7; i++) {
         let gif = gifs[i];
         let q = i + 5
         gif.setAttribute("src", data.data[q].images.downsized_medium.url)
+        pie[i].innerHTML = "#" + data.data[i].title
     }
 }
+
+function addTendenciaGif(data){
+    let container = document.getElementById('gifsDinamicos')
+    for (let i = 4; i < data.data.length; i++) {
+        let width = parseInt(data.data[i].images.original.width)
+        console.log(width)
+    if (width > 500){
+        console.log(data.data[i])
+        let gifs2 = document.createElement('div')
+        gifs2.setAttribute('classs', 'gifs2grande')
+        let gif2 = document.createElement('div')
+        gif2.setAttribute('class', 'gif2grande')
+        let img = document.createElement('img')
+        img.setAttribute('class', "gif2img")
+        img.setAttribute('alt', 'gif')
+        img.setAttribute('src', data.data[i].images.downsized_medium.url)
+        let pieContainer = document.createElement('div')
+        pieContainer.setAttribute('class', 'pie')
+        let pie = document.createElement('p')
+        pie.setAttribute('class', 'bold')
+        pie.innerHTML = "#" + data.data[i].title
+        gifs2.appendChild(gif2)
+        gif2.appendChild(img)
+        gif2.appendChild(pieContainer)
+        pieContainer.appendChild(pie)
+        console.log(gifs2)
+        container.appendChild(gifs2)
+        gifs2.addEventListener('mouseover', ()=>{
+            pieContainer.style.display = 'block'
+        })
+        gifs2.addEventListener('mouseout', ()=>{
+            pieContainer.style.display = 'none'
+        })
+    } else {
+        let gifs2 = document.createElement('div')
+        gifs2.setAttribute('classs', 'gifs2')
+        let gif2 = document.createElement('div')
+        gif2.setAttribute('class', 'gif2')
+        let img = document.createElement('img')
+        img.setAttribute('class', "gif2img")
+        img.setAttribute('alt', 'gif')
+        img.setAttribute('src', data.data[i].images.downsized_medium.url)
+        let pieContainer = document.createElement('div')
+        pieContainer.setAttribute('class', 'pie')
+        let pie = document.createElement('p')
+        pie.setAttribute('class', 'bold')
+        let string = data.data[i].title
+        let substring = string.substring(0, 32)
+        pie.innerHTML = "#" + substring
+        gifs2.appendChild(gif2)
+        gif2.appendChild(img)
+        gif2.appendChild(pieContainer)
+        pieContainer.appendChild(pie)
+        container.appendChild(gifs2)
+        gifs2.addEventListener('mouseover', ()=>{
+            pieContainer.style.display = 'block'
+        })
+        gifs2.addEventListener('mouseout', ()=>{
+            pieContainer.style.display = 'none'
+        })
+    }
+    }
+}
+
+function addBigGif(gif){
+
+}
+
 try {
     getTendencias()
 } catch (error) {

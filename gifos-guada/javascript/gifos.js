@@ -186,7 +186,7 @@ function addTendenciaGif(data){
         let img = document.createElement('img')
         img.setAttribute('class', "gif2img")
         img.setAttribute('alt', 'gif')
-        img.setAttribute('src', data.data[i].images.downsized_medium.url)
+        img.setAttribute('src', data.data[i].images.original.url)
         let pieContainer = document.createElement('div')
         pieContainer.setAttribute('class', 'pie')
         let pie = document.createElement('p')
@@ -212,7 +212,7 @@ function addTendenciaGif(data){
         let img = document.createElement('img')
         img.setAttribute('class', "gif2img")
         img.setAttribute('alt', 'gif')
-        img.setAttribute('src', data.data[i].images.downsized_medium.url)
+        img.setAttribute('src', data.data[i].images.original.url)
         let pieContainer = document.createElement('div')
         pieContainer.setAttribute('class', 'pie')
         let pie = document.createElement('p')
@@ -312,6 +312,68 @@ function misGuifos (){
     recomendaciones.style.display = 'none';
     tendencias.style.display = 'none';
     gifUsuario.style.display = 'block';
+    retrieveUserGif()
+}
+
+function retrieveUserGif() {
+    let gifs = localStorage.getItem("mis_gifs")
+    let array = []
+    if (gifs != null) {
+        array = JSON.parse(gifs)
+    }
+    for (let i = 0; i < array.length; i++) {
+        getUsersGifs(array[i], i)
+    }
+}
+
+async function getUsersGifs(gif) {
+    const found = await fetch('http://api.giphy.com/v1/gifs/' + gif + '?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
+        .then((response) => {
+            return response.json()
+        }).then(data => {
+            console.log(data)
+            placeUserGif(data)
+            return data
+        })
+        .catch((error) => {
+            return error
+        })
+    return found
+}
+
+function placeUserGif(data) {
+    try {
+        let width = parseInt(data.data.images.original.width)
+        let container = document.getElementById('gifsU')
+        if (width > 500){
+            let gifs2 = document.createElement('div')
+            gifs2.setAttribute('classs', 'gifGrandeUsuario')
+            let gif2 = document.createElement('div')
+            gif2.setAttribute('class', 'gifGrandeU')
+            let img = document.createElement('img')
+            img.setAttribute('class', "gifUimg")
+            img.setAttribute('alt', 'gif')
+            img.setAttribute('src', data.data.images.original.url)
+            gifs2.appendChild(gif2)
+            gif2.appendChild(img)
+            container.appendChild(gifs2)
+        } else {
+            let gifs2 = document.createElement('div')
+            gifs2.setAttribute('classs', 'gifUsuario')
+            let gif2 = document.createElement('div')
+            gif2.setAttribute('class', 'gifU')
+            let img = document.createElement('img')
+            img.setAttribute('class', "gifUimg")
+            img.setAttribute('alt', 'gif')
+            img.setAttribute('src', data.data.images.original.url)
+            gifs2.appendChild(gif2)
+            gif2.appendChild(img)
+            container.appendChild(gifs2)
+        }
+    } catch (error) {
+        console.log(error.message)
+    }
+
 }
 
 //Redirigir a Crear un Guifo

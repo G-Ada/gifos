@@ -232,13 +232,13 @@ function getStreamAndRecord() {
 }
 
 
-async function getUsersGifs(gif, i) {
+async function getUsersGifs(gif) {
     const found = await fetch('http://api.giphy.com/v1/gifs/' + gif + '?' + 'api_key=' + 'oP1JP6lmt3Np0JUpN6HVIrjsDzK5HDOe')
         .then((response) => {
             return response.json()
         }).then(data => {
             console.log(data)
-            placeUserGif(data, i)
+            placeUserGif(data)
             return data
         })
         .catch((error) => {
@@ -258,11 +258,35 @@ function retrieveUserGif() {
     }
 }
 
-function placeUserGif(data, i) {
+function placeUserGif(data) {
     try {
-        let places = document.getElementsByClassName('gifUimg')
-        let gif = data.data.images.original.url
-        places[i].setAttribute('src', gif)
+        let width = parseInt(data.data.images.original.width)
+        let container = document.getElementById('gifsU')
+        if (width > 500){
+            let gifs2 = document.createElement('div')
+            gifs2.setAttribute('classs', 'gifGrandeUsuario')
+            let gif2 = document.createElement('div')
+            gif2.setAttribute('class', 'gifGrandeU')
+            let img = document.createElement('img')
+            img.setAttribute('class', "gifUimg")
+            img.setAttribute('alt', 'gif')
+            img.setAttribute('src', data.data.images.original.url)
+            gifs2.appendChild(gif2)
+            gif2.appendChild(img)
+            container.appendChild(gifs2)
+        } else {
+            let gifs2 = document.createElement('div')
+            gifs2.setAttribute('classs', 'gifUsuario')
+            let gif2 = document.createElement('div')
+            gif2.setAttribute('class', 'gifU')
+            let img = document.createElement('img')
+            img.setAttribute('class', "gifUimg")
+            img.setAttribute('alt', 'gif')
+            img.setAttribute('src', data.data.images.original.url)
+            gifs2.appendChild(gif2)
+            gif2.appendChild(img)
+            container.appendChild(gifs2)
+        }
     } catch (error) {
         console.log(error.message)
     }
